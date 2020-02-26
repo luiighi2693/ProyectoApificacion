@@ -92,35 +92,26 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<!-- tag::wsdl[] -->
-			<plugin>
-				<groupId>org.jvnet.jaxb2.maven2</groupId>
-				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.14.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-<!--					<args>-->
-<!--						<arg>-Xannotate</arg>-->
-<!--						<arg>-nv</arg>-->
-<!--					</args>-->
-					<schemaLanguage>WSDL</schemaLanguage>
-					<!--<generatePackage>com.banesco.consumingwebservice.wsdl</generatePackage>-->
-					<schemas>
-						<schema>
-						<!--
-						<url>http://localhost:8081/ws/countries.wsdl</url>-->
-						<url>http://10.135.5.29:8001/BNETFinancialAccountOutAppSvc/proxy/BNETFinancialAccountOutAppSvc?wsdl</url>
-						
-						</schema>
-					</schemas>
-				</configuration>
-			</plugin>
-			<!-- end::wsdl[] -->
+<!--			<plugin>-->
+<!--				<groupId>org.jvnet.jaxb2.maven2</groupId>-->
+<!--				<artifactId>maven-jaxb2-plugin</artifactId>-->
+<!--				<version>0.14.0</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<goals>-->
+<!--							<goal>generate</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--				<configuration>-->
+<!--					<schemaLanguage>WSDL</schemaLanguage>-->
+<!--					<schemas>-->
+<!--						<schema>-->
+<!--						<url>http://10.135.5.29:8001/BNETFinancialAccountOutAppSvc/proxy/BNETFinancialAccountOutAppSvc?wsdl</url>-->
+<!--						</schema>-->
+<!--					</schemas>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 </project>
