@@ -5,6 +5,7 @@ import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ReadCu
 import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ReadCustomerAccountRs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
@@ -17,21 +18,26 @@ public class SoapClient extends WebServiceGatewaySupport {
     private static final Logger log = LoggerFactory.getLogger(SoapClient.class);
 
     @Value( "${soap.endpoint}" )
-    private String soapAuthEndpoint;
+    private String soapEndpoint;
 
     @Value( "${soap.readcustomeraccount.action}" )
     private String readCustomerAcountAction;
 
+    @Value( "${soap.namespace}" )
+    private String namespace;
+
+    @Autowired
+    ObjectFactory objectFactory;
+
     public ReadCustomerAccountRs readCustomerAccount(ReadCustomerAccountRq request) {
-        ObjectFactory of = new ObjectFactory();
-        JAXBElement<ReadCustomerAccountRq> reqjaxb = of.createReadCustomerAccountRq(request);
+        JAXBElement<ReadCustomerAccountRq> reqjaxb = objectFactory.createReadCustomerAccountRq(request);
 
         @SuppressWarnings("unchecked")
         JAXBElement<ReadCustomerAccountRs> response = (JAXBElement<ReadCustomerAccountRs>) getWebServiceTemplate()
                 .marshalSendAndReceive(
-                        soapAuthEndpoint,
+                        soapEndpoint,
                         reqjaxb,
-                        new SoapActionCallback(readCustomerAcountAction));
+                        new SoapActionCallback(namespace + readCustomerAcountAction));
         return response.getValue();
     }
 

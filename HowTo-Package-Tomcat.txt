@@ -1,0 +1,58 @@
+* In The pom.xml:
+
+    1 - replace:
+        <packaging>jar</packaging>
+
+        By:
+
+        <packaging>war</packaging>
+
+     2 - replace:
+
+         <dependency>
+            <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web-services</artifactId>
+         </dependency>
+
+         By:
+
+             <dependency>
+         			<groupId>org.springframework.boot</groupId>
+         			<artifactId>spring-boot-starter-web-services</artifactId>
+         			<exclusions>
+         				<exclusion>
+         					<groupId>org.springframework.boot</groupId>
+         					<artifactId>spring-boot-starter-tomcat</artifactId>
+         				</exclusion>
+         			</exclusions>
+         		</dependency>
+
+         		<dependency>
+                	<groupId>org.springframework.boot</groupId>
+                	<artifactId>spring-boot-starter-tomcat</artifactId>
+                	<scope>provided</scope>
+                </dependency>
+
+* In the Main Class Reemplace:
+
+        @SpringBootApplication
+        public class DemoWebApplication{
+            public static void main(String[] args) {
+                SpringApplication.run(DemoWebApplication.class, args);
+            }
+        }
+
+        By:
+
+        @SpringBootApplication
+        public class DemoWebApplication extends SpringBootServletInitializer {
+
+            @Override
+            protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+                return application.sources(DemoWebApplication.class);
+            }
+
+            public static void main(String[] args) {
+                SpringApplication.run(DemoWebApplication.class, args);
+            }
+        }

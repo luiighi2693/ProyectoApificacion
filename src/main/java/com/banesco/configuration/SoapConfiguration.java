@@ -1,4 +1,5 @@
 package com.banesco.configuration;
+import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ObjectFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,5 +27,10 @@ public class SoapConfiguration {
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
         return client;
+    }
+
+    @Bean
+    public ObjectFactory objectFactory() {
+        return new ObjectFactory();
     }
 }
