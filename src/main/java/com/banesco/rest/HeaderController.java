@@ -1,7 +1,7 @@
 package com.banesco.rest;
 
 import com.banesco.util.Util;
-import com.banesco.xmlns.enterpriseobjects.msgrshdr.MsgRsHdr;
+import com.banesco.xmlns.enterpriseobjects.msgrqhdr.MsgRqHdr;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.Api;
@@ -27,12 +27,12 @@ public class HeaderController {
 
 	@CrossOrigin
 	@GetMapping(path = "/")
-	public ResponseEntity<List<MsgRsHdr>> getHeader() {
+	public ResponseEntity<List<MsgRqHdr>> getHeader() {
 		log.info("Requesting getHeader");
-		MsgRsHdr[] result = null;
+		MsgRqHdr[] result = null;
 
 		try {
-			result = new ObjectMapper().readValue(json, MsgRsHdr[].class);
+			result = new ObjectMapper().readValue(json, MsgRqHdr[].class);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}

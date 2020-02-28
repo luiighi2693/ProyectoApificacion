@@ -8,7 +8,7 @@ import com.banesco.configuration.SoapClient;
 import com.banesco.util.Util;
 import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ReadCustomerAccountRq;
 import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ReadCustomerAccountRs;
-import com.banesco.xmlns.enterpriseobjects.msgrshdr.MsgRsHdr;
+import com.banesco.xmlns.enterpriseobjects.msgrqhdr.MsgRqHdr;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,14 +43,21 @@ public class AccountController {
     public ResponseEntity<ReadCustomerAccountRs> readCustomerAccount(@RequestBody ReadCustomerAccountRq request) {
         log.info("Requesting readCustomerAccount for " + Util.getJsonFromObject(request));
 
-        List<MsgRsHdr> msgRsHdrs = restClient.getHeader();
-        log.info("logging header: " + Util.getJsonFromObject(msgRsHdrs));
+        List<MsgRqHdr> msgRqHdrs = restClient.getHeader();
+        log.info("logging header: " + Util.getJsonFromObject(msgRqHdrs));
+
+        log.info("Requesting getrequestId for: " + Util.instanceId);
+
+        String requestId = restClient.getRequestId();
+
+        log.info("logging response: " + requestId);
+
+        msgRqHdrs.get(0).setRequestId(requestId);
+        request.setMsgRqHdr(msgRqHdrs.get(0));
 
         ReadCustomerAccountRs response = soapClient.readCustomerAccount(request);
 
         log.info("logging response: " + Util.getJsonFromObject(response));
-
-        response.setMsgRsHdr(msgRsHdrs);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

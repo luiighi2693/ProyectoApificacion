@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Util {
 
+    public static String instanceId = null;
+
     public static String getJsonFromObject(Object object) {
         try {
             return new ObjectMapper().writeValueAsString(object);
