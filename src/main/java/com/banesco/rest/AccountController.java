@@ -3,10 +3,12 @@ package com.banesco.rest;
 //public class ReadCustomerAccountController {
 //}
 
+import com.banesco.configuration.RestClient;
 import com.banesco.configuration.SoapClient;
 import com.banesco.util.Util;
 import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ReadCustomerAccountRq;
 import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ReadCustomerAccountRs;
+import com.banesco.xmlns.enterpriseobjects.msgrshdr.MsgRsHdr;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @Api(description = "Read Customer Account API")
 @RequestMapping(path = "/account")
@@ -26,19 +30,28 @@ public class AccountController {
     private Logger log = LoggerFactory.getLogger(AccountController.class);
 
     private final SoapClient soapClient;
+    private final RestClient restClient;
 
     @Autowired
-    public AccountController(SoapClient soapClient) {
+    public AccountController(SoapClient soapClient, RestClient restClient) {
         this.soapClient = soapClient;
+        this.restClient = restClient;
     }
 
     @CrossOrigin
     @PostMapping(path = "/customer/read")
     public ResponseEntity<ReadCustomerAccountRs> readCustomerAccount(@RequestBody ReadCustomerAccountRq request) {
         log.info("Requesting readCustomerAccount for " + Util.getJsonFromObject(request));
+
+        List<MsgRsHdr> msgRsHdrs = restClient.getHeader();
+        log.info("logging header: " + Util.getJsonFromObject(msgRsHdrs));
+
         ReadCustomerAccountRs response = soapClient.readCustomerAccount(request);
 
         log.info("logging response: " + Util.getJsonFromObject(response));
+
+        response.setMsgRsHdr(msgRsHdrs);
+
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

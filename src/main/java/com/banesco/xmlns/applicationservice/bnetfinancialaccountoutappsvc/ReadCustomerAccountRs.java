@@ -200,4 +200,7 @@ public class ReadCustomerAccountRs {
         this.bankinfo = value;
     }
 
+    public void setMsgRsHdr(List<MsgRsHdr> msgRsHdr) {
+        this.msgRsHdr = msgRsHdr;
+    }
 }
