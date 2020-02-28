@@ -21,7 +21,7 @@ public class UtilController {
     @GetMapping(path = "/instance-id")
     public ResponseEntity<String> getInstanceId() {
         log.info("Requesting getInstanceId");
-        String result = null;
+        String result;
 
         result = Util.instanceId;
 
