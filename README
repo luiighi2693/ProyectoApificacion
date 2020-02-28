@@ -2,9 +2,9 @@ DOCS API URL
 
 http://localhost:8989/swagger-ui.html
 
-TESTCASES
+TESTCASES:
 
-readCustomerAccount
+- readCustomerAccount
 
 {
   "customer": {
