@@ -43,8 +43,8 @@ public class AccountController {
     public ResponseEntity<ReadCustomerAccountRs> readCustomerAccount(@RequestBody ReadCustomerAccountRq request) {
         log.info("Requesting readCustomerAccount for " + Util.getJsonFromObject(request));
 
-        List<MsgRqHdr> msgRqHdrs = restClient.getHeader();
-        log.info("logging header: " + Util.getJsonFromObject(msgRqHdrs));
+        MsgRqHdr msgRqHdr = restClient.getHeader();
+        log.info("logging header: " + Util.getJsonFromObject(msgRqHdr));
 
         log.info("Requesting getrequestId for: " + Util.instanceId);
 
@@ -52,8 +52,8 @@ public class AccountController {
 
         log.info("logging response: " + requestId);
 
-        msgRqHdrs.get(0).setRequestId(requestId);
-        request.setMsgRqHdr(msgRqHdrs.get(0));
+        msgRqHdr.setRequestId(requestId);
+        request.setMsgRqHdr(msgRqHdr);
 
         ReadCustomerAccountRs response = soapClient.readCustomerAccount(request);
 

@@ -23,21 +23,21 @@ import java.util.List;
 public class HeaderController {
 	private Logger log = LoggerFactory.getLogger(HeaderController.class);
 
-	private String json = "[{\"privateChannelId\":null,\"finalStatusRequest\":\"2789\",\"countDataOut\":\"11\",\"headerTypeReg\":null,\"detailTypeReg\":null,\"transactionCode\":\"0003\",\"supervisorCode\":\"BAN0591W17\",\"operationType\":\"Multiple\",\"transactionConsecutive\":\"0000\",\"detailReg\":\"Transaccion finalizada con exito\",\"registerNumber\":[\"2789\"],\"transactionType\":\"0\",\"requestId\":\"20130227111522223\",\"requestedOperationType\":null,\"messageDate\":null,\"transactionTime\":null,\"lastStatusRequest\":null,\"returnValue\":null,\"requestStatus\":null,\"messageTime\":null,\"transacctionDate\":null,\"requestNumber\":null,\"appName\":\"AS400\"}]";
+	private String json = "{\"lineId\":\"0\",\"messageDate\":\"2011-01-20\",\"messageTime\":\"15:34:01\",\"networkTrnInfo\":[{\"agencyCode\":\"591\",\"bankId\":\"01\",\"channelId\":\"INT\",\"channelUserId\":\"ADOBRO-00010\",\"operationType\":\"Multiple\",\"originatorName\":null,\"registerNumber\":\"2789\",\"transactionCode\":\"0003\",\"transactionConsecutive\":\"0000\",\"transactionDate\":\"2011-01-20\",\"transactionTime\":\"15:04:02\",\"transactionType\":\"0\"}],\"operatorCode\":\"BAN0591W01\",\"requestId\":\"20130227111522223\",\"resumeId\":\"0\",\"reverseId\":\"0\",\"sourceChannelCode\":\"INT\",\"supervisorCode\":\"BAN0591W17\"}";
 
 	@CrossOrigin
 	@GetMapping(path = "/")
-	public ResponseEntity<List<MsgRqHdr>> getHeader() {
+	public ResponseEntity<MsgRqHdr> getHeader() {
 		log.info("Requesting getHeader");
-		MsgRqHdr[] result = null;
+		MsgRqHdr result = null;
 
 		try {
-			result = new ObjectMapper().readValue(json, MsgRqHdr[].class);
+			result = new ObjectMapper().readValue(json, MsgRqHdr.class);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
 
 		log.info("logging response: " + Util.getJsonFromObject(result));
-		return new ResponseEntity<>(Arrays.asList(result), HttpStatus.OK);
+		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 }

@@ -17,31 +17,5 @@ readCustomerAccount
       ]
     }
   },
-  "msgRqHdr": {
-    "lineId": "0",
-    "messageDate": "2011-01-20",
-    "messageTime": "15:34:01",
-    "networkTrnInfo": [
-      {
-        "agencyCode": "591",
-        "bankId": "01",
-        "channelId": "INT",
-        "channelUserId": "ADOBRO-00010",
-        "operationType": "Multiple",
-        "originatorName": null,
-        "registerNumber": "2789",
-        "transactionCode": "0003",
-        "transactionConsecutive": "0000",
-        "transactionDate": "2011-01-20",
-        "transactionTime": "15:04:02",
-        "transactionType": "0"
-      }
-    ],
-    "operatorCode": "BAN0591W01",
-    "requestId": "20130227111522223",
-    "resumeId": "0",
-    "reverseId": "0",
-    "sourceChannelCode": "INT",
-    "supervisorCode": "BAN0591W17"
-  }
+  "msgRqHdr":
 }

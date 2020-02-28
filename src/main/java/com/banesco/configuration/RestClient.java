@@ -36,11 +36,11 @@ public class RestClient {
         Util.instanceId = result;
     }
 
-    public List<MsgRqHdr> getHeader() {
+    public MsgRqHdr getHeader() {
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<MsgRqHdr[]> response
-                = restTemplate.getForEntity(headerUrl, MsgRqHdr[].class);
-        return Arrays.asList(response.getBody());
+        ResponseEntity<MsgRqHdr> response
+                = restTemplate.getForEntity(headerUrl, MsgRqHdr.class);
+        return response.getBody();
     }
 
     public String getRequestId() {
