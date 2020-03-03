@@ -98,13 +98,14 @@
 <!--					</execution>-->
 <!--				</executions>-->
 <!--				<configuration>-->
-<!--					<schemaLanguage>WSDL</schemaLanguage>-->
+<!--				<schemaLanguage>WSDL</schemaLanguage>-->
 <!--					<schemas>-->
 <!--						<schema>-->
 <!--						<url>http://10.135.5.29:8001/BNETFinancialAccountOutAppSvc/proxy/BNETFinancialAccountOutAppSvc?wsdl</url>-->
+<!--						<url>http://10.135.5.29:8001/BNETCreditCardOutAppSvc/proxy/BNETCreditCardOutAppSvc?wsdl</url>-->
 <!--						</schema>-->
 <!--					</schemas>-->
-<!--				</configuration>-->
+<!--					</configuration>-->
 <!--			</plugin>-->
 		</plugins>
 	</build>
