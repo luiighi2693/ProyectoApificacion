@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.banesco.configuration.RestClient;
-import com.banesco.configuration.SoapCreditCardClient;
+import com.banesco.configuration.soap.SoapCreditCardClient;
 import com.banesco.util.Util;
 import com.banesco.xmlns.applicationservice.bnetcreditcardoutappsvc.ReadCreditCardBalanceRq;
 import com.banesco.xmlns.applicationservice.bnetcreditcardoutappsvc.ReadCreditCardBalanceRs;

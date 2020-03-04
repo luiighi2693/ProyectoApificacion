@@ -4,7 +4,7 @@ package com.banesco.rest;
 //}
 
 import com.banesco.configuration.RestClient;
-import com.banesco.configuration.SoapClient;
+import com.banesco.configuration.soap.SoapAccountClient;
 import com.banesco.util.Util;
 import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ReadCustomerAccountRq;
 import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ReadCustomerAccountRs;
@@ -21,19 +21,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
-
 @Controller
 @Api(description = "Read Customer Account API")
 @RequestMapping(path = "/account")
 public class AccountController {
     private Logger log = LoggerFactory.getLogger(AccountController.class);
 
-    private final SoapClient soapClient;
+    private final SoapAccountClient soapClient;
     private final RestClient restClient;
 
     @Autowired
-    public AccountController(SoapClient soapClient, RestClient restClient) {
+    public AccountController(SoapAccountClient soapClient, RestClient restClient) {
         this.soapClient = soapClient;
         this.restClient = restClient;
     }

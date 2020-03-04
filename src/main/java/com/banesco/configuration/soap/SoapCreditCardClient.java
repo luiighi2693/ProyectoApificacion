@@ -1,4 +1,4 @@
-package com.banesco.configuration;
+package com.banesco.configuration.soap;
 
 import com.banesco.xmlns.applicationservice.bnetcreditcardoutappsvc.ObjectFactory;
 import com.banesco.xmlns.applicationservice.bnetcreditcardoutappsvc.ReadCreditCardBalanceRq;
