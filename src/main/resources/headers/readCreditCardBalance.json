@@ -1,0 +1,26 @@
+{
+  "messageDate": "2011-01-20",
+  "messageTime": "15:34:01",
+  "requestId": "",
+  "resumeId": "0",
+  "reverseId": "0",
+  "lineId": "0",
+  "sourceChannelCode": "INT",
+  "supervisorCode": "BAN0591W17",
+  "operatorCode": "BAN0591W01",
+  "networkTrnInfo": [
+    {
+      "transactionConsecutive": "04120",
+      "registerNumber": "2142",
+      "operationType": "0",
+      "transactionType": "0",
+      "transactionCode": "8714",
+      "transactionDate": "2011-01-20",
+      "transactionTime": "15:04:02",
+      "bankId": "01",
+      "agencyCode": "591",
+      "channelId": "INT",
+      "channelUserId": "string"
+    }
+  ]
+}

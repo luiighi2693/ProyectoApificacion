@@ -34,10 +34,10 @@ public class RestClient {
         Util.instanceId = result;
     }
 
-    public MsgRqHdr getHeader() {
+    public MsgRqHdr getHeader(String headerName) {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<MsgRqHdr> response
-                = restTemplate.getForEntity(headerUrl, MsgRqHdr.class);
+                = restTemplate.getForEntity(headerUrl + headerName, MsgRqHdr.class);
         return response.getBody();
     }
 

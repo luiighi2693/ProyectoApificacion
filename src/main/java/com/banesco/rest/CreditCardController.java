@@ -40,7 +40,7 @@ public class CreditCardController {
     public ResponseEntity<ReadCreditCardBalanceRs> readCreditCardBalance(@RequestBody ReadCreditCardBalanceRq request) {
         log.info("Requesting readCreditCardBalance for " + Util.getJsonFromObject(request));
 
-        MsgRqHdr msgRqHdr = restClient.getHeader();
+        MsgRqHdr msgRqHdr = restClient.getHeader("readCreditCardBalance");
         log.info("logging header: " + Util.getJsonFromObject(msgRqHdr));
 
         log.info("Requesting getrequestId for: " + Util.instanceId);
@@ -51,8 +51,6 @@ public class CreditCardController {
 
         msgRqHdr.setRequestId(requestId);
         request.setMsgRqHdr(msgRqHdr);
-        
-        log.info("request: "+ Util.getJsonFromObject(request));
         
         ReadCreditCardBalanceRs response = soapClient.readCreditCardBalance(request);
 
