@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
+import org.springframework.xml.transform.StringResult;
 
 import javax.xml.bind.JAXBElement;
+import java.io.IOException;
 
 
 public class SoapClient extends WebServiceGatewaySupport {
@@ -26,10 +28,8 @@ public class SoapClient extends WebServiceGatewaySupport {
     @Value( "${soap.namespace}" )
     private String namespace;
 
-    @Autowired
-    ObjectFactory objectFactory;
-
     public ReadCustomerAccountRs readCustomerAccount(ReadCustomerAccountRq request) {
+        ObjectFactory objectFactory = new ObjectFactory();
         JAXBElement<ReadCustomerAccountRq> reqjaxb = objectFactory.createReadCustomerAccountRq(request);
 
         @SuppressWarnings("unchecked")

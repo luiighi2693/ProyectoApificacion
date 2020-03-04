@@ -52,14 +52,4 @@ public class SoapConfiguration {
     	clientCreditCard.setUnmarshaller(marshallerCreditCard);
         return clientCreditCard;
     }
-
-    @Bean
-    public ObjectFactory objectFactory() {
-        return new ObjectFactory();
-    }
-    
-    @Bean
-    public com.banesco.xmlns.applicationservice.bnetcreditcardoutappsvc.ObjectFactory objectFactoryCreditCard() {
-        return new com.banesco.xmlns.applicationservice.bnetcreditcardoutappsvc.ObjectFactory();
-    }
 }
