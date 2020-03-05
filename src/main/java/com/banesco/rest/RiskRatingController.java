@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.banesco.xmlns.applicationservice.portalpaymentriskratingoutappsvc.ValidateCustomerBlackListRq;
+import com.banesco.xmlns.applicationservice.portalpaymentriskratingoutappsvc.ValidateCustomerBlackListRs;
 import com.banesco.configuration.RestClient;
-import com.banesco.configuration.soap.SoapCreditCardClient;
+import com.banesco.configuration.soap.SoapRiskRatingClient;
 import com.banesco.util.Util;
-import com.banesco.xmlns.applicationservice.bnetcreditcardoutappsvc.ReadCreditCardBalanceRq;
-import com.banesco.xmlns.applicationservice.bnetcreditcardoutappsvc.ReadCreditCardBalanceRs;
 import com.banesco.xmlns.enterpriseobjects.msgrqhdr.MsgRqHdr;
 
 import io.swagger.annotations.Api;
@@ -23,24 +23,24 @@ import io.swagger.annotations.Api;
 @Controller
 @Api(description = "Credit Card API")
 @RequestMapping(path = "/creditCard")
-public class CreditCardController {
-	private Logger log = LoggerFactory.getLogger(CreditCardController.class);
+public class RiskRatingController {
+	private Logger log = LoggerFactory.getLogger(RiskRatingController.class);
 
-    private final SoapCreditCardClient soapClient;
+    private final SoapRiskRatingClient soapClient;
     private final RestClient restClient;
 
     @Autowired
-    public CreditCardController(SoapCreditCardClient soapClient, RestClient restClient) {
+    public RiskRatingController(SoapRiskRatingClient soapClient, RestClient restClient) {
         this.soapClient = soapClient;
         this.restClient = restClient;
     }
 
     @CrossOrigin
-    @PostMapping(path = "/read/balance")
-    public ResponseEntity<ReadCreditCardBalanceRs> readCreditCardBalance(@RequestBody ReadCreditCardBalanceRq request) {
-        log.info("Requesting readCreditCardBalance for " + Util.getJsonFromObject(request));
+    @PostMapping(path = "/risk/validate")
+    public ResponseEntity<ValidateCustomerBlackListRs> readRiskRatingBalance(@RequestBody ValidateCustomerBlackListRq request) {
+        log.info("Requesting readRiskRatingBalance for " + Util.getJsonFromObject(request));
 
-        MsgRqHdr msgRqHdr = restClient.getHeader("readCreditCardBalance");
+        MsgRqHdr msgRqHdr = restClient.getHeader("readRiskRatingBalance");
         log.info("logging header: " + Util.getJsonFromObject(msgRqHdr));
 
         log.info("Requesting getrequestId for: " + Util.instanceId);
@@ -52,7 +52,7 @@ public class CreditCardController {
         msgRqHdr.setRequestId(requestId);
         request.setMsgRqHdr(msgRqHdr);
         
-        ReadCreditCardBalanceRs response = soapClient.readCreditCardBalance(request);
+        ValidateCustomerBlackListRs response = soapClient.validateCustomerBlackList(request);
 
         log.info("logging response: " + Util.getJsonFromObject(response));
 

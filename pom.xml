@@ -86,27 +86,27 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<!-- tag::wsdl[] -->
-<!--			<plugin>-->
-<!--				<groupId>org.jvnet.jaxb2.maven2</groupId>-->
-<!--				<artifactId>maven-jaxb2-plugin</artifactId>-->
-<!--				<version>0.14.0</version>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<goals>-->
-<!--							<goal>generate</goal>-->
-<!--						</goals>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--				<configuration>-->
-<!--				<schemaLanguage>WSDL</schemaLanguage>-->
-<!--					<schemas>-->
-<!--						<schema>-->
+<!--			<plugin> -->
+<!--				<groupId>org.jvnet.jaxb2.maven2</groupId> -->
+<!--				<artifactId>maven-jaxb2-plugin</artifactId> -->
+<!--				<version>0.14.0</version> -->
+<!--				<executions> -->
+<!--					<execution> -->
+<!--						<goals> -->
+<!--							<goal>generate</goal> -->
+<!--						</goals> -->
+<!--					</execution> -->
+<!--				</executions> -->
+<!--				<configuration> -->
+<!--				<schemaLanguage>WSDL</schemaLanguage> -->
+<!--					<schemas> -->
+<!--						<schema> -->
 <!--						<url>http://10.135.5.29:8001/BNETFinancialAccountOutAppSvc/proxy/BNETFinancialAccountOutAppSvc?wsdl</url>-->
-<!--						<url>http://10.135.5.29:8001/BNETCreditCardOutAppSvc/proxy/BNETCreditCardOutAppSvc?wsdl</url>-->
-<!--						</schema>-->
-<!--					</schemas>-->
-<!--					</configuration>-->
-<!--			</plugin>-->
+<!--						<url>http://10.135.5.29:8001/PortalPaymentRiskRatingOutAppSvc/proxy/PortalPaymentRiskRatingOutAppSvc?wsdl</url> -->
+<!--						</schema> -->
+<!--					</schemas> -->
+<!--					</configuration> -->
+<!--			</plugin> -->
 		</plugins>
 	</build>
 </project>
