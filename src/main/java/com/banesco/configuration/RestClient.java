@@ -26,12 +26,12 @@ public class RestClient {
 
     @PostConstruct
     void init() {
-        log.info("Request to getInstanceId");
-
-        String result = this.getInstanceId();
-        log.info("Response to getInstanceId: " + result);
-
-        Util.instanceId = result;
+        if (!idGeneratorUrl.contains("localhost")) {
+            log.info("Request to getInstanceId");
+            String result = this.getInstanceId();
+            log.info("Response to getInstanceId: " + result);
+            Util.instanceId = result;
+        }
     }
 
     public MsgRqHdr getHeader(String headerName) {
