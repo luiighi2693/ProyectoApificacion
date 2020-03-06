@@ -1,4 +1,4 @@
-package com.banesco.configuration.soap;
+package com.banesco.configuration.soap.portalpaymentriskratingoutappsvc;
 
 import com.banesco.xmlns.applicationservice.portalpaymentriskratingoutappsvc.ObjectFactory;
 import com.banesco.xmlns.applicationservice.portalpaymentriskratingoutappsvc.ValidateCustomerBlackListRq;

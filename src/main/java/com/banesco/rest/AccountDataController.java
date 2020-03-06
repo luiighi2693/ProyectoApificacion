@@ -1,13 +1,10 @@
 package com.banesco.rest;
 
-//public class ReadCustomerAccountController {
-//}
-
 import com.banesco.configuration.RestClient;
-import com.banesco.configuration.soap.bnetfinancialaccountoutappsvc.SoapAccountClient;
+import com.banesco.configuration.soap.apifinancialaccountoutappsvc.SoapAccountDataClient;
 import com.banesco.util.Util;
-import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ReadCustomerAccountRq;
-import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ReadCustomerAccountRs;
+import com.banesco.xmlns.applicationservice.apifinancialaccountoutappsvc.ReadAccountBalanceRq;
+import com.banesco.xmlns.applicationservice.apifinancialaccountoutappsvc.ReadAccountBalanceRs;
 import com.banesco.xmlns.enterpriseobjects.msgrqhdr.MsgRqHdr;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
@@ -22,26 +19,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@Api(description = "Read Customer Account API")
-@RequestMapping(path = "/account")
-public class AccountController {
-    private Logger log = LoggerFactory.getLogger(AccountController.class);
+@Api(description = "Account Data API")
+@RequestMapping(path = "/account/data/")
+public class AccountDataController {
+    private Logger log = LoggerFactory.getLogger(AccountDataController.class);
 
-    private final SoapAccountClient soapClient;
+    private final SoapAccountDataClient soapClient;
     private final RestClient restClient;
 
     @Autowired
-    public AccountController(SoapAccountClient soapClient, RestClient restClient) {
+    public AccountDataController(SoapAccountDataClient soapClient, RestClient restClient) {
         this.soapClient = soapClient;
         this.restClient = restClient;
     }
 
     @CrossOrigin
-    @PostMapping(path = "/customer/read")
-    public ResponseEntity<ReadCustomerAccountRs> readCustomerAccount(@RequestBody ReadCustomerAccountRq request) {
-        log.info("Requesting readCustomerAccount for " + Util.getJsonFromObject(request));
+    @PostMapping(path = "/balance/read")
+    public ResponseEntity<ReadAccountBalanceRs> readAccountBalance(@RequestBody ReadAccountBalanceRq request) {
+        log.info("Requesting readAccountBalance for " + Util.getJsonFromObject(request));
 
-        MsgRqHdr msgRqHdr = restClient.getHeader("readCustomerAccount");
+        MsgRqHdr msgRqHdr = restClient.getHeader("readAccountBalance");
         log.info("logging header: " + Util.getJsonFromObject(msgRqHdr));
 
         log.info("Requesting getrequestId for: " + Util.instanceId);
@@ -53,7 +50,7 @@ public class AccountController {
         msgRqHdr.setRequestId(requestId);
         request.setMsgRqHdr(msgRqHdr);
 
-        ReadCustomerAccountRs response = soapClient.readCustomerAccount(request);
+        ReadAccountBalanceRs response = soapClient.readAccountBalance(request);
 
         log.info("logging response: " + Util.getJsonFromObject(response));
 

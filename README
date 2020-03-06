@@ -20,13 +20,10 @@ TESTCASES:
 }
 
 
-- readCreditCardBalance
+- readAccountBalance
 
 {
   "account": {
-    "acctId": [
-      "5401402934809718"
-    ],
-    "acctType": "CCA"
+    "acctId": "01340946390001031414"
   }
 }

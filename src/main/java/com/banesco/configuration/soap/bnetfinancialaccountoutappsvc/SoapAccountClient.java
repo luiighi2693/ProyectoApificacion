@@ -1,4 +1,4 @@
-package com.banesco.configuration.soap;
+package com.banesco.configuration.soap.bnetfinancialaccountoutappsvc;
 
 import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ObjectFactory;
 import com.banesco.xmlns.applicationservice.bnetfinancialaccountoutappsvc.ReadCustomerAccountRq;

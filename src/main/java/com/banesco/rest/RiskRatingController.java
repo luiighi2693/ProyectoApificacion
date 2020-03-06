@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.banesco.xmlns.applicationservice.portalpaymentriskratingoutappsvc.ValidateCustomerBlackListRq;
 import com.banesco.xmlns.applicationservice.portalpaymentriskratingoutappsvc.ValidateCustomerBlackListRs;
 import com.banesco.configuration.RestClient;
-import com.banesco.configuration.soap.SoapRiskRatingClient;
+import com.banesco.configuration.soap.portalpaymentriskratingoutappsvc.SoapRiskRatingClient;
 import com.banesco.util.Util;
 import com.banesco.xmlns.enterpriseobjects.msgrqhdr.MsgRqHdr;
 
