@@ -1,7 +1,7 @@
 package com.banesco.rest;
 
 import com.banesco.configuration.RestClient;
-import com.banesco.configuration.soap.apifinancialaccountoutappsvc.SoapAccountDataClient;
+import com.banesco.configuration.soap.apifinancialaccountoutappsvc.SoapFinancialAccountClient;
 import com.banesco.util.Util;
 import com.banesco.xmlns.applicationservice.apifinancialaccountoutappsvc.ReadAccountBalanceRq;
 import com.banesco.xmlns.applicationservice.apifinancialaccountoutappsvc.ReadAccountBalanceRs;
@@ -20,15 +20,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Api(description = "Account Data API")
-@RequestMapping(path = "/account/data/")
-public class AccountDataController {
-    private Logger log = LoggerFactory.getLogger(AccountDataController.class);
+@RequestMapping(path = "/financial/account/")
+public class FinancialAccountController {
+    private Logger log = LoggerFactory.getLogger(FinancialAccountController.class);
 
-    private final SoapAccountDataClient soapClient;
+    private final SoapFinancialAccountClient soapClient;
     private final RestClient restClient;
 
     @Autowired
-    public AccountDataController(SoapAccountDataClient soapClient, RestClient restClient) {
+    public FinancialAccountController(SoapFinancialAccountClient soapClient, RestClient restClient) {
         this.soapClient = soapClient;
         this.restClient = restClient;
     }

@@ -16,13 +16,13 @@ public class SoapAccountClient extends WebServiceGatewaySupport {
 
     private static final Logger log = LoggerFactory.getLogger(SoapAccountClient.class);
 
-    @Value( "${soap.endpoint}" )
-    private String soapEndpoint;
+    @Value( "${soap.account.endpoint}" )
+    private String soapAccountEndpoint;
 
-    @Value( "${soap.readcustomeraccount.action}" )
+    @Value( "${soap.account.readcustomeraccount.action}" )
     private String readCustomerAcountAction;
 
-    @Value( "${soap.namespace}" )
+    @Value( "${soap.account.namespace}" )
     private String namespace;
 
     public ReadCustomerAccountRs readCustomerAccount(ReadCustomerAccountRq request) {
@@ -32,7 +32,7 @@ public class SoapAccountClient extends WebServiceGatewaySupport {
         @SuppressWarnings("unchecked")
         JAXBElement<ReadCustomerAccountRs> response = (JAXBElement<ReadCustomerAccountRs>) getWebServiceTemplate()
                 .marshalSendAndReceive(
-                        soapEndpoint,
+                        soapAccountEndpoint,
                         reqjaxb,
                         new SoapActionCallback(namespace + readCustomerAcountAction));
         return response.getValue();

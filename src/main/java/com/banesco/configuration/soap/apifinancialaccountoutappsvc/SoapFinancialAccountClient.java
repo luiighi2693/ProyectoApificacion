@@ -12,17 +12,17 @@ import org.springframework.ws.soap.client.core.SoapActionCallback;
 import javax.xml.bind.JAXBElement;
 
 
-public class SoapAccountDataClient extends WebServiceGatewaySupport {
+public class SoapFinancialAccountClient extends WebServiceGatewaySupport {
 
-    private static final Logger log = LoggerFactory.getLogger(SoapAccountDataClient.class);
+    private static final Logger log = LoggerFactory.getLogger(SoapFinancialAccountClient.class);
 
-    @Value( "${soap.account.data.endpoint}" )
-    private String soapAccountDataEndpoint;
+    @Value( "${soap.financial.account.data.endpoint}" )
+    private String soapFinancialAccountEndpoint;
 
-    @Value( "${soap.account.data.readcustomeraccount.action}" )
+    @Value( "${soap.financial.account.data.readcustomeraccount.action}" )
     private String readAccountBalanceAction;
 
-    @Value( "${soap.account.data.namespace}" )
+    @Value( "${soap.financial.account.data.namespace}" )
     private String namespace;
 
     public ReadAccountBalanceRs readAccountBalance(ReadAccountBalanceRq request) {
@@ -32,7 +32,7 @@ public class SoapAccountDataClient extends WebServiceGatewaySupport {
         @SuppressWarnings("unchecked")
         JAXBElement<ReadAccountBalanceRs> response = (JAXBElement<ReadAccountBalanceRs>) getWebServiceTemplate()
                 .marshalSendAndReceive(
-                        soapAccountDataEndpoint,
+                        soapFinancialAccountEndpoint,
                         reqjaxb,
                         new SoapActionCallback(namespace + readAccountBalanceAction));
         return response.getValue();

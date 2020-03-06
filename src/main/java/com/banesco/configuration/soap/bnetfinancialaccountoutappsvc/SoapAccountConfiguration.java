@@ -7,25 +7,25 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Configuration
 public class SoapAccountConfiguration {
-    @Value( "${soap.package}" )
+    @Value( "${soap.account.package}" )
     private String soapPackage;
 
-    @Value( "${soap.endpoint}" )
+    @Value( "${soap.account.endpoint}" )
     private String soapAuthEndpoint;
 
     @Bean
-    public Jaxb2Marshaller marshaller() {
+    public Jaxb2Marshaller marshallerAccount() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
         marshaller.setContextPath(soapPackage);
         return marshaller;
     }
 
     @Bean
-    public SoapAccountClient soapClient(Jaxb2Marshaller marshaller) {
+    public SoapAccountClient soapAccountClient(Jaxb2Marshaller marshallerAccount) {
         SoapAccountClient client = new SoapAccountClient();
         client.setDefaultUri(soapAuthEndpoint);
-        client.setMarshaller(marshaller);
-        client.setUnmarshaller(marshaller);
+        client.setMarshaller(marshallerAccount);
+        client.setUnmarshaller(marshallerAccount);
         return client;
     }
 
