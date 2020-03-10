@@ -103,7 +103,7 @@
 						<schema>
 <!--						<url>http://10.135.5.29:8001/BNETFinancialAccountOutAppSvc/proxy/BNETFinancialAccountOutAppSvc?wsdl</url>-->
 <!--						<url>http://10.135.5.29:8001/PortalPaymentRiskRatingOutAppSvc/proxy/PortalPaymentRiskRatingOutAppSvc?wsdl</url>-->
-						<url>http://10.135.5.29:8001/APIFinancialAccountOutAppSvc/proxy/APIFinancialAccountOutAppSvc?wsdl</url>
+<!--						<url>http://10.135.5.29:8001/APIFinancialAccountOutAppSvc/proxy/APIFinancialAccountOutAppSvc?wsdl</url>-->
 						</schema>
 					</schemas>
 					</configuration>
