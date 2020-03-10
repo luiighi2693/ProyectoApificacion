@@ -3,8 +3,8 @@ package com.banesco.rest;
 import com.banesco.configuration.RestClient;
 import com.banesco.configuration.soap.apifinancialaccountoutappsvc.SoapFinancialAccountClient;
 import com.banesco.util.Util;
-import com.banesco.xmlns.applicationservice.apifinancialaccountoutappsvc.ReadAccountBalanceRq;
-import com.banesco.xmlns.applicationservice.apifinancialaccountoutappsvc.ReadAccountBalanceRs;
+import com.banesco.xmlns.applicationservice.apifinancialaccountoutappsvc.ReadAccountBalanceRqType;
+import com.banesco.xmlns.applicationservice.apifinancialaccountoutappsvc.ReadAccountBalanceRsType;
 import com.banesco.xmlns.enterpriseobjects.msgrqhdr.MsgRqHdr;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
@@ -35,7 +35,7 @@ public class FinancialAccountController {
 
     @CrossOrigin
     @PostMapping(path = "/balance/read")
-    public ResponseEntity<ReadAccountBalanceRs> readAccountBalance(@RequestBody ReadAccountBalanceRq request) {
+    public ResponseEntity<ReadAccountBalanceRsType> readAccountBalance(@RequestBody ReadAccountBalanceRqType request) {
         log.info("Requesting readAccountBalance for " + Util.getJsonFromObject(request));
 
         MsgRqHdr msgRqHdr = restClient.getHeader("readAccountBalance");
@@ -50,7 +50,7 @@ public class FinancialAccountController {
         msgRqHdr.setRequestId(requestId);
         request.setMsgRqHdr(msgRqHdr);
 
-        ReadAccountBalanceRs response = soapClient.readAccountBalance(request);
+        ReadAccountBalanceRsType response = soapClient.readAccountBalance(request);
 
         log.info("logging response: " + Util.getJsonFromObject(response));
 
