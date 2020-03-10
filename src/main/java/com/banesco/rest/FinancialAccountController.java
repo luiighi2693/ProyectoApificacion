@@ -47,7 +47,8 @@ public class FinancialAccountController {
 
         log.info("logging requestId: " + requestId);
 
-        msgRqHdr.setRequestId(requestId);
+        msgRqHdr.setRequestId(requestId.substring(0, 39));//agregado por lletsica para recortar id
+        
         request.setMsgRqHdr(msgRqHdr);
 
         ReadAccountBalanceRsType response = soapClient.readAccountBalance(request);

@@ -30,13 +30,13 @@ public class Util {
     }
 
     public static String getInstanceId() {
-        String s = RandomStringUtils.randomAlphanumeric(25);
-        return "INSTANCEID-"+ s;
+        String s = RandomStringUtils.randomAlphanumeric(19);
+        return s;
     }
 
     public static String getRequestId(String instanceId) {
-        String s = RandomStringUtils.randomAlphanumeric(35);
-        return instanceId + "REQUESTID-"+ s;
+        String s = RandomStringUtils.randomAlphanumeric(20);
+        return instanceId + "-"+ s;
     }
 
     public static MsgRqHdr getHeader(String headerName){
