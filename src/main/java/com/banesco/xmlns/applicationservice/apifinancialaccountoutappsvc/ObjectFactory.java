@@ -33,6 +33,10 @@ public class ObjectFactory {
 
     private final static QName _ReadAccountBalanceRq_QNAME = new QName("http://xmlns.banesco.com/ApplicationService/APIFinancialAccountOutAppSvc", "readAccountBalance_Rq");
     private final static QName _ReadAccountBalanceRs_QNAME = new QName("http://xmlns.banesco.com/ApplicationService/APIFinancialAccountOutAppSvc", "readAccountBalance_Rs");
+    private final static QName _TransferBanescoAccountRq_QNAME = new QName("http://xmlns.banesco.com/ApplicationService/APIFinancialAccountOutAppSvc", "transferBanescoAccount_Rq");
+    private final static QName _TransferBanescoAccountRs_QNAME = new QName("http://xmlns.banesco.com/ApplicationService/APIFinancialAccountOutAppSvc", "transferBanescoAccount_Rs");
+    private final static QName _TransferOtherBankAccountRq_QNAME = new QName("http://xmlns.banesco.com/ApplicationService/APIFinancialAccountOutAppSvc", "transferOtherBankAccount_Rq");
+    private final static QName _TransferOtherBankAccountRs_QNAME = new QName("http://xmlns.banesco.com/ApplicationService/APIFinancialAccountOutAppSvc", "transferOtherBankAccount_Rs");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.banesco.xmlns.applicationservice.apifinancialaccountoutappsvc
@@ -321,6 +325,30 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://xmlns.banesco.com/ApplicationService/APIFinancialAccountOutAppSvc", name = "readAccountBalance_Rs")
     public JAXBElement<ReadAccountBalanceRsType> createReadAccountBalanceRs(ReadAccountBalanceRsType value) {
         return new JAXBElement<ReadAccountBalanceRsType>(_ReadAccountBalanceRs_QNAME, ReadAccountBalanceRsType.class, null, value);
+    }
+
+
+    @XmlElementDecl(namespace = "http://xmlns.banesco.com/ApplicationService/APIFinancialAccountOutAppSvc", name = "transferBanescoAccount_Rq")
+    public JAXBElement<TransferBanescoAccountRq> createTransferBanescoAccountRq(TransferBanescoAccountRq value) {
+        return new JAXBElement<TransferBanescoAccountRq>(_TransferBanescoAccountRq_QNAME, TransferBanescoAccountRq.class, null, value);
+    }
+
+
+    @XmlElementDecl(namespace = "http://xmlns.banesco.com/ApplicationService/APIFinancialAccountOutAppSvc", name = "transferBanescoAccount_Rs")
+    public JAXBElement<TransferBanescoAccountRs> createTransferBanescoAccountRs(TransferBanescoAccountRs value) {
+        return new JAXBElement<TransferBanescoAccountRs>(_TransferBanescoAccountRs_QNAME, TransferBanescoAccountRs.class, null, value);
+    }
+
+
+    @XmlElementDecl(namespace = "http://xmlns.banesco.com/ApplicationService/APIFinancialAccountOutAppSvc", name = "transferOtherBankAccount_Rq")
+    public JAXBElement<TransferOtherBankAccountRq> createTransferOtherBankAccountRq(TransferOtherBankAccountRq value) {
+        return new JAXBElement<TransferOtherBankAccountRq>(_TransferOtherBankAccountRq_QNAME, TransferOtherBankAccountRq.class, null, value);
+    }
+
+
+    @XmlElementDecl(namespace = "http://xmlns.banesco.com/ApplicationService/APIFinancialAccountOutAppSvc", name = "transferOtherBankAccount_Rs")
+    public JAXBElement<TransferOtherBankAccountRs> createTransferOtherBankAccountRs(TransferOtherBankAccountRs value) {
+        return new JAXBElement<TransferOtherBankAccountRs>(_TransferOtherBankAccountRs_QNAME, TransferOtherBankAccountRs.class, null, value);
     }
 
 }

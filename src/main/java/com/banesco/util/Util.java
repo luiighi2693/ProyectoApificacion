@@ -3,18 +3,11 @@ package com.banesco.util;
 import com.banesco.xmlns.enterpriseobjects.msgrqhdr.MsgRqHdr;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.io.Resources;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.springframework.util.ResourceUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Objects;
-import java.util.Properties;
 
 public class Util {
 
@@ -30,13 +23,13 @@ public class Util {
     }
 
     public static String getInstanceId() {
-        String s = RandomStringUtils.randomAlphanumeric(19);
-        return s;
+        String s = RandomStringUtils.randomAlphanumeric(10);
+        return "INST" + s;
     }
 
     public static String getRequestId(String instanceId) {
         String s = RandomStringUtils.randomAlphanumeric(20);
-        return instanceId + "-"+ s;
+        return instanceId + "REQ"+ s;
     }
 
     public static MsgRqHdr getHeader(String headerName){

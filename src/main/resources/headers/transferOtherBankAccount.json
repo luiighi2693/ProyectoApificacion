@@ -1,0 +1,22 @@
+{
+  "messageDate": "2013-03-01",
+  "messageTime": "03:53:11",
+  "requestId": "2013031154641",
+  "sourceChannelCode": "INT",
+  "operatorCode": "BAN0591W01",
+  "networkTrnInfo": [{
+    "transactionCode": "7194",
+    "transactionDate": "2014-09-01",
+    "transactionTime": "05:22:01",
+    "bankId": "01",
+    "channelUserId": "TEST"
+  }],
+  "applicantData": {
+    "ipAddress": "127.0.0.1",
+    "application": "APIMGMT"
+  },
+  "vbprotocol": {
+    "vbprotocolInd": "true",
+    "transactionInd": "true"
+  }
+}

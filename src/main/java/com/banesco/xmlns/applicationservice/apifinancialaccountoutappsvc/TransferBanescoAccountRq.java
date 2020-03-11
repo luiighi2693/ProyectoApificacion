@@ -629,6 +629,9 @@ public class TransferBanescoAccountRq {
                     return this.amt;
                 }
 
+                public void setAmt(List<Double> amt) {
+                    this.amt = amt;
+                }
             }
 
         }

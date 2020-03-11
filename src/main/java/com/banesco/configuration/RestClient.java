@@ -35,17 +35,34 @@ public class RestClient {
     }
 
     public MsgRqHdr getHeader(String headerName) {
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<MsgRqHdr> response
-                = restTemplate.getForEntity(headerUrl + headerName, MsgRqHdr.class);
-        return response.getBody();
+        MsgRqHdr result = null;
+        if (headerUrl.contains("localhost")) {
+            result = Util.getHeader(headerName);
+        } else {
+            RestTemplate restTemplate = new RestTemplate();
+            ResponseEntity<MsgRqHdr> response
+                    = restTemplate.getForEntity(headerUrl + headerName, MsgRqHdr.class);
+            log.info("logging header: " + Util.getJsonFromObject(response.getBody()));
+            result = response.getBody();
+        }
+        log.info("logging header: " + Util.getJsonFromObject(result));
+        return result;
     }
 
     public String getRequestId() {
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response
-                = restTemplate.getForEntity(idGeneratorUrl + requestIdPath + Util.instanceId, String.class);
-        return response.getBody();
+        log.info("Request to getRequestId");
+        String result = null;
+        if (idGeneratorUrl.contains("localhost")) {
+            result = Util.getRequestId(Util.instanceId);
+        } else {
+            RestTemplate restTemplate = new RestTemplate();
+            ResponseEntity<String> response
+                    = restTemplate.getForEntity(idGeneratorUrl + requestIdPath + Util.instanceId, String.class);
+            result = response.getBody();
+        }
+
+        log.info("Response to getRequestId: " + result);
+        return result;
     }
 
     public String getInstanceId() {

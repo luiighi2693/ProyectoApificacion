@@ -922,8 +922,7 @@ public class TransferOtherBankAccountRq {
             @XmlElement(name = "TrnId")
             protected String trnId;
             @XmlElement(name = "OrigDt")
-            @XmlSchemaType(name = "dateTime")
-            protected List<XMLGregorianCalendar> origDt;
+            protected String origDt;
             @XmlElement(name = "TrnStatus")
             protected List<String> trnStatus;
             @XmlElement(name = "CurAmt")
@@ -985,10 +984,7 @@ public class TransferOtherBankAccountRq {
              * 
              * 
              */
-            public List<XMLGregorianCalendar> getOrigDt() {
-                if (origDt == null) {
-                    origDt = new ArrayList<XMLGregorianCalendar>();
-                }
+            public String getOrigDt() {
                 return this.origDt;
             }
 

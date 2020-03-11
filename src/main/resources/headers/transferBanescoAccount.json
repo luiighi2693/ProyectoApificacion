@@ -1,0 +1,23 @@
+{
+  "messageDate": "2016-09-22",
+  "messageTime": "03:55:37",
+  "networkTrnInfo": [
+    {
+      "bankId": "01",
+      "channelUserId": "TEST",
+      "transactionDate": "2016-09-22",
+      "transactionTime": "03:55:37",
+      "transactionCode": "0802"
+    }
+  ],
+  "applicantData": {
+    "application": "APIMGMT"
+  },
+  "vbprotocol": {
+    "vbprotocolInd": "true",
+    "transactionInd": "true"
+  },
+  "operatorCode": "BAN0591W01",
+  "requestId": "20160922155534d761e8-N5zCsJk022",
+  "sourceChannelCode": "INT"
+}

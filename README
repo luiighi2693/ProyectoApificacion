@@ -4,26 +4,196 @@ http://localhost:8989/swagger-ui.html
 
 TESTCASES:
 
-- readCustomerAccount
-
-{
-  "customer": {
-    "personInfo": {
-      "otherIdentDoc": [
-        {
-          "type": "V",
-          "identSerialNum": "014122185"
-        }
-      ]
-    }
-  }
-}
-
-
 - readAccountBalance
 
 {
   "account": {
     "acctId": "01340946390001031414"
+  }
+}
+
+- transferBanescoAccount (no esta funcionando, funciono la primera vez)
+
+{
+  "account": [
+    {
+      "acctId": "01340328733283070814",
+      "bankInfo": [
+        {
+          "bankId": "01",
+          "name": "Banesco"
+        }
+      ],
+      "xferAccMode": "From"
+    },
+    {
+      "acctId": "01340044040441047836",
+      "bankInfo": [
+        {
+          "bankId": "01",
+          "name": "Banesco"
+        }
+      ],
+      "xferAccMode": "To"
+    }
+  ],
+  "banking": {
+    "bankAcctTrnRec": [
+      {
+        "curAmt": [
+          {
+            "amt": [1.0]
+          }
+        ],
+        "trnTypeRef": "10115553761"
+      }
+    ]
+  }
+}
+
+
+- transferOtherBankAccount - caso 1 (no esta funcionando, funciono la primera vez)
+
+{
+  "account": [
+    {
+      "acctId": "01340001640013218495",
+      "acctType": "CMA",
+      "bankInfo": [
+        {
+          "bankId": "01",
+          "name": "Banesco"
+        }
+      ],
+      "customer": {
+        "personInfo": {
+          "otherIdentDoc": {
+            "identSerialNum": [
+              "5167778"
+            ],
+            "type": [
+              "V"
+            ]
+          }
+        }
+      },
+      "xferAccMode": "From"
+    },
+    {
+      "acctId": "01050114841114114979",
+      "acctType": "CMA",
+      "bankInfo": [
+        {
+          "bankId": "0105",
+          "name": "BANCO MERCANTIL C.A."
+        }
+      ],
+      "customer": {
+        "personInfo": {
+          "fullName": "Edgar Jaspe",
+          "otherIdentDoc": {
+            "identSerialNum": [
+              "16563762"
+            ],
+            "type": [
+              "V"
+            ]
+          }
+        }
+      },
+      "xferAccMode": "To"
+    }
+  ],
+  "banking": {
+    "bankAcctTrnRec": {
+      "controlKey": "26017220184",
+      "curAmt":
+        {
+          "amt":
+            0.01
+
+        }
+      ,
+      "desc": "0",
+      "firstNumber": "0",
+      "lastNumber": "4",
+      "origDt": "2014-09-01T17:22:01",
+      "trnId": "54",
+      "trnStatus": [
+        "000"
+      ],
+      "trnTypeRef": "26017220184"
+    }
+  }
+}
+
+- transferOtherBankAccount - caso 2 (no esta funcionando, funciono la primera vez)
+
+{
+  "account": [
+    {
+      "acctId": "01340363593633040264",
+      "acctType": "CMA",
+      "bankInfo": [
+        {
+          "bankId": "01",
+          "name": "Banesco"
+        }
+      ],
+      "customer": {
+        "personInfo": {
+          "otherIdentDoc": {
+            "identSerialNum": [
+              "16563762"
+            ],
+            "type": [
+              "V"
+            ]
+          }
+        }
+      },
+      "xferAccMode": "From"
+    },
+    {
+      "acctId": "01050114841114114979",
+      "acctType": "CMA",
+      "bankInfo": [
+        {
+          "bankId": "0105",
+          "name": "BANCO MERCANTIL C.A."
+        }
+      ],
+      "customer": {
+        "personInfo": {
+          "fullName": "Edgar Jaspe",
+          "otherIdentDoc": {
+            "identSerialNum": [
+              "16563762"
+            ],
+            "type": [
+              "V"
+            ]
+          }
+        }
+      },
+      "xferAccMode": "To"
+    }
+  ],
+  "banking": {
+    "bankAcctTrnRec": {
+      "controlKey": "26017220183",
+      "curAmt": {
+        "amt": 10.0
+      },
+      "desc": "0",
+      "firstNumber": "0",
+      "lastNumber": "4",
+      "origDt": "2014-09-01T17:22:01",
+      "trnId": "53",
+      "trnStatus": [
+        "000"
+      ],
+      "trnTypeRef": "26017220183"
+    }
   }
 }
